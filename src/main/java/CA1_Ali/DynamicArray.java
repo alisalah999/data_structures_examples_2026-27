@@ -53,4 +53,17 @@ public class DynamicArray {
         }
         return -1;
     }
+    /*
+     * Look for the specified element in the list.
+     * @return its position, or -1 if it cannot be found
+     */
+    public void add(String element) {
+        if (element == null) {
+            throw new IllegalArgumentException("Null values are not allowed .")
+        }
+        //puts the new element into the next free slot the end of the array.
+        //after adding UPDATE by adding 1.
+        data[size] = element;
+        sizs++;
+    }
 }
