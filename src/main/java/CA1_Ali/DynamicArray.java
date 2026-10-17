@@ -37,4 +37,20 @@ public class DynamicArray {
         // am adding some validation here later
         return data[index]
     }
+
+    /**
+     * Returns the index of the given element
+     * if the element is not found, returns -1
+     *
+     * @param element the String to search for
+     * @return the index of the element, or -1 if not found
+     */
+    public int indexOf(String element) {
+        for (int i = 0; i < size; i++) {
+            if (data[i].equals(element)) {
+                return i;
+            }
+        }
+        return -1;
+    }
 }
