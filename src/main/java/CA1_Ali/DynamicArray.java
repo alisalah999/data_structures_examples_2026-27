@@ -56,10 +56,44 @@ public class DynamicArray {
     /*
      * Look for the specified element in the list.
      * @return its position, or -1 if it cannot be found
+     * Method add(element, index):
+    * If element is null:
+        Throw an exception (null values are not allowed)
+    * If index is less than 0 OR index is greater than size:
+        Throw an exception (invalid index)
+    * If size is equal to the length of the array:
+        Create a new array with length = current array length * 2
+        Copy all elements from the old array into the new array
+        Replace the old array with the new array
+
+    * Starting from the last element down to index:
+        Shift each element one position to the right
+
+    * Store the new element at the given index
+    * Increase size by 1
+    * End method (returns nothing)
      */
-    public void add(String element) {
+    public void add(String element, int index) {
         if (element == null) {
             throw new IllegalArgumentException("Null values are not allowed .")
+        }
+
+        if (index < 0 || index > size) {
+            throw new IndexOutOfBoundsException("Invalid index: " + index)
+        }
+
+        if (size == data.length){
+            String[] newData = new String[data.length * 2];
+            System.arraycopy(data, 0, newData,0, data.length);
+            data = newData
+        }
+        //shifting elements right starting
+        for (int i = size -1;
+             i >= index;
+             i--
+        )
+        {
+            data[i + 1] = data[i];
         }
         //puts the new element into the next free slot the end of the array.
         //after adding UPDATE by adding 1.
