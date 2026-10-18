@@ -100,4 +100,22 @@ public class DynamicArray {
         data[size] = element;
         sizs++;
     }
+    /*
+     * Replace the element at the given index with the supplied element.
+     * Null values are not allowed.
+     * @return the element that was previously stored at the index
+     */
+    public int set(element, index) {
+        if (element == null) {
+            throw new IllegalArgumentException("Null values are not allowed.");
+        }
+
+        if (index <0 || index >= size) {
+            throw new IndexOutOfBoundsException("Invalid index: " + index);
+        }
+
+        String oldValue = data[index]; //temp store the element being replace
+        data[index] = element; //relacing the element with the new one
+        return oldValue; // return the previous element
+    }
 }

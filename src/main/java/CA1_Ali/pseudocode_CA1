@@ -1,0 +1,13 @@
+Method set(element, index):
+
+    If element is null:
+        Throw an exception (null values not allowed)
+
+    If index is less than 0 OR index is greater than or equal to size:
+        Throw an exception (invalid index)
+
+    Store the old value at data[index] in a temporary variable
+
+    Replace data[index] with the new element
+
+    Return the old value
