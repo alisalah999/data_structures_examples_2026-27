@@ -11,3 +11,16 @@ Method set(element, index):
     Replace data[index] with the new element
 
     Return the old value
+remove(index):
+
+   if index is less than 0 or index is greater than size:
+        throw an exception (invalid index)
+
+   Store the element at data[index] in a temporary variable (this is the value to return)
+
+       Starting from index up to size - 2:
+           Shift each element one position to the left
+
+       Decrease size by 1
+
+       Return the removed element

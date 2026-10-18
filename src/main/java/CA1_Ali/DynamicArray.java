@@ -118,4 +118,23 @@ public class DynamicArray {
         data[index] = element; //relacing the element with the new one
         return oldValue; // return the previous element
     }
+
+    public int remove(index) {
+        if (index < 0 || index >= size){
+            throw new IndexOutOfBoundsException("Invalid index: " + index);
+        }
+
+        String removedValue = data[index];
+        // shift elements left
+        for (int i = index;
+             i < size -1;
+             i++) {
+            data[i] = data[i+1];
+        }
+        // was thinking first to set the last element to null
+        size--;
+
+        return removedValue
+    }
+
 }
