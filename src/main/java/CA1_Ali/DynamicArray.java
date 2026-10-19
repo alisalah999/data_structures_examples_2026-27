@@ -134,7 +134,17 @@ public class DynamicArray {
         // was thinking first to set the last element to null
         size--;
 
-        return removedValue
+        return removedValue;
     }
+    /*
+     * Reset the list to its original empty state.
+     * All data is removed and size becomes 0.
+     */
+    public void clear() {
+        data = new String[10];  // reset array to original capacity
+        size = 0;               // reset size
+    }
+
+
 
 }
