@@ -162,4 +162,34 @@ public class DynamicArray {
         }
         return result;
     }
+
+    /*
+     * Join another DynamicArray onto the end of this one.
+     * Null lists are not allowed.
+     */
+    public void join(DynamicArray other) {
+
+        if (other == null) {
+            throw new IllegalArgumentException("Cannot join a null list");
+        }
+
+        // check if we need to expand
+        if ((data.length - size) < other.size) {
+            String[] temp = new String[size + other.size];
+
+            System.arraycopy(data, 0, temp, 0, size);
+
+            data = temp;
+        }
+
+        // copy the other list's data into this one
+        System.arraycopy(other.data, 0, data, size, other.size);
+
+        size += other.size;
+    }
+
+
+
+
+
 }
