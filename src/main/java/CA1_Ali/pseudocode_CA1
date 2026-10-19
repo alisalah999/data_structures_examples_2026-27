@@ -75,4 +75,16 @@ Method deduplicate():
             result.add(current)
 
     Return result
+*******************************
+Method join(other):
+
+    Create a new empty DynamicArray called result
+
+    For each element in this list:
+        result.add(element)
+
+    For each element in other list:
+        result.add(element)
+
+    Return result
 
