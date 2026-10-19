@@ -93,37 +93,51 @@ public class DynamicArray {
         size++;
     }
     /*
-     * Replace the element at the given index with the supplied element.
+     * Replaces the element at the given index with the supplied element.
      * Null values are not allowed.
-     * @return the element that was previously stored at the index
+     *
+     * @param element the new element to store
+     * @param index the position to replace
+     * @return the element previously stored at the index
+     * @throws IllegalArgumentException if element is null
+     * @throws IndexOutOfBoundsException if index is less than 0 or greater than or equal to size
      */
-    public int set(element, index) {
+    public String set(String element, int index) {
+
         if (element == null) {
             throw new IllegalArgumentException("Null values are not allowed.");
         }
 
-        if (index <0 || index >= size) {
+        if (index < 0 || index >= size) {
             throw new IndexOutOfBoundsException("Invalid index: " + index);
         }
 
-        String oldValue = data[index]; //temp store the element being replace
-        data[index] = element; //relacing the element with the new one
-        return oldValue; // return the previous element
-    }
+        String oldValue = data[index];
+        data[index] = element;
 
-    public String remove(index) {
-        if (index < 0 || index >= size){
+        return oldValue;
+    }
+    /**
+     * Removes the element at the specified index.
+     * Elements after the index are shifted left.
+     *
+     * @param index the position of the element to remove
+     * @return the removed element
+     * @throws IndexOutOfBoundsException if index is less than 0 or greater than or equal to size
+     */
+    public String remove(int index) {
+
+        if (index < 0 || index >= size) {
             throw new IndexOutOfBoundsException("Invalid index: " + index);
         }
 
         String removedValue = data[index];
         // shift elements left
-        for (int i = index;
-             i < size -1;
-             i++) {
-            data[i] = data[i+1];
+        for (int i = index; i < size - 1; i++) {
+            data[i] = data[i + 1];
         }
-        // was thinking first to set the last element to null
+
+        data[size - 1] = null; // cleanup
         size--;
 
         return removedValue;
@@ -133,7 +147,7 @@ public class DynamicArray {
      * All data is removed and size becomes 0.
      */
     public void clear() {
-        data = new String[10];  // reset array to original capacity
+        data = new String[INITIAL_CAPACITY];  // reset array to original capacity
         size = 0;               // reset size
     }
 
