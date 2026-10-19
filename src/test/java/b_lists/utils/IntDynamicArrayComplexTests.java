@@ -244,13 +244,4 @@ class IntDynamicArrayComplexTests {
                 }, "Accessing old elements is still possible"
         );
     }
-
-    // Deduplication test cases:
-    // deduplicate_EmptyList_ReturnsEmptyList	[]	Returned list is empty; original remains empty; returned list is a     different instance.
-    // deduplicate_NoDuplicates_ReturnsSameValues	[1, 2, 3, 4]	Returned contents and size are correct; original    remains unchanged; result is a different instance.
-    // deduplicate_SingleElement_ReturnsSameElement	[7]	Returned list contains [7]; both sizes are correct; original    remains unchanged.
-    // deduplicate_AllElementsIdentical_ReturnsSingleElement	[5, 5, 5, 5]	Returned list contains [5]; size is 1;    original still contains four elements.
-    // deduplicate_OneDuplicate_ReturnsUniqueElements	[1, 2, 2, 3]	Returned list contains [1, 2, 3]; original is    unchanged.
-    // deduplicate_MultipleDuplicates_ReturnsUniqueElements	[1, 2, 1, 3, 2, 4, 3]	Returned list contains [1, 2, 3,     4]; original is unchanged.
-    // deduplicate_NegativeAndPositiveValues_ReturnsUniqueElements
 }

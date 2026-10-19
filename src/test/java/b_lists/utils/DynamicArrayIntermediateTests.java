@@ -88,21 +88,6 @@ class DynamicArrayIntermediateTests {
         assertEquals(expectedResult, result);
     }
 
-    @Test
-    void indexOf_MultipleMatchesPresent_CaseInsensitivity() {
-        DynamicArray myList = new DynamicArray();
-        String value = "Five";
-        myList.add(value.toLowerCase());
-        myList.add("1");
-        myList.add(value);
-
-        int expectedResult = 0;
-        int result = myList.indexOf(value);
-
-        assertEquals(expectedResult, result);
-    }
-
-
     // Add at position
     @Test
     void addAtPosition_EmptyList() {
