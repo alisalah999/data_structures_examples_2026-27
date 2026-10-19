@@ -41,10 +41,38 @@ Method removeAll(element):
             Decrease i by 1 (so we do not skip the next element)
 
     End method (returns nothing)
-
+*****************************
 Method clear():
 
     Create a new empty array of length 10
     Replace the old array with the new one
     Set size to 0
     End method (returns nothing)
+*****************************
+Method deduplicate():
+
+    Create a new empty DynamicArray called result
+
+    For each index i from 0 to size - 1:
+
+        Let current = data[i]
+
+        If result.indexOf(current) == -1:
+            result.add(current)
+
+    Return result
+******************************
+
+Method deduplicate():
+
+    Create a new empty DynamicArray called result
+
+    For each index i from 0 to size - 1:
+
+        Let current = data[i]
+
+        If result.indexOf(current) == -1:
+            result.add(current)
+
+    Return result
+

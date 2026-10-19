@@ -119,7 +119,7 @@ public class DynamicArray {
         return oldValue; // return the previous element
     }
 
-    public int remove(index) {
+    public String remove(index) {
         if (index < 0 || index >= size){
             throw new IndexOutOfBoundsException("Invalid index: " + index);
         }
@@ -145,6 +145,21 @@ public class DynamicArray {
         size = 0;               // reset size
     }
 
+    /*
+     * Create a new list containing only one copy of each element.
+     * The original list is not modified.
+     * @return a new DynamicArray with duplicates removed
+     */
+    public DynaminArray deduplicate() {
+        DynamicArray result = new DynamicArray();
 
+        for (int i = 0; i<size; i++) {
+            String current = data[i];
 
+            if (result.indexOf(current) == -1) {
+                result.add(current);
+            }
+        }
+        return result;
+    }
 }
