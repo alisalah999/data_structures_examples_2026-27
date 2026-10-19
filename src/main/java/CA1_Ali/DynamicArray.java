@@ -29,14 +29,19 @@ public class DynamicArray {
     }
 
     /**
-     * Returns the element stored at the given index.
+     * Returns the element stored at the specified index.
+     *
      * @param index the position to retrieve
-     * @return the String at the given index
+     * @return the String stored at the given index
+     * @throws IndexOutOfBoundsException if the index is less than 0 or greater than or equal to size
      */
-    public int get(int index) {
-        // am adding some validation here later
-        return data[index]
+    public String get(int index) {
+        if (index < 0 || index >= size) {
+            throw new IndexOutOfBoundsException("Invalid index: " + index);
+        }
+        return data[index];
     }
+
 
     /**
      * Returns the index of the given element
