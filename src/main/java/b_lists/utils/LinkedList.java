@@ -103,6 +103,25 @@ public class LinkedList {
         size++;
     }
 
+    public int indexOf(String target){
+        validateForNull(target);
+
+        Node current = first;
+        for (int i = 0; i < size; i++) {
+            if(current.data.equals(target)){
+                return i;
+            }
+            current = current.next;
+        }
+        return -1;
+    }
+
+    private static void validateForNull(String target) {
+        if(target == null){
+            throw new IllegalArgumentException("Cannot search for null");
+        }
+    }
+
     private void validateInBoundsInclusive(int index) {
         if(index < 0 || index > size){
             throw new IndexOutOfBoundsException("Index " + index + " is outside bounds of list");
